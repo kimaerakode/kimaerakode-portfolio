@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react';
+
+
+import { useEffect, useRef, StrictMode } from 'react';
 
 type Particle = {
   x: number;
@@ -107,7 +109,8 @@ export default function FairyDustCursor({
     };
   }, [color, particleCount, particleSize]);
 
-  return (
+    return (
+      <StrictMode>
     <canvas
       ref={canvasRef}
       aria-hidden="true"
@@ -117,6 +120,7 @@ export default function FairyDustCursor({
         pointerEvents: 'none',
         zIndex: 9999,
       }}
-    />
+            />
+            </StrictMode>
   );
 }
