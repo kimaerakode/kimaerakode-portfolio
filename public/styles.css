@@ -160,6 +160,7 @@ span  {
 
   body {
 max-width: 100%;
+min-height: 100vh;
     font-family: var(--font-body);
     background: var(--surface);
     color: var(--text);
