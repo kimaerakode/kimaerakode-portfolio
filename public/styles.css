@@ -191,6 +191,7 @@ min-height: 100vh;
   }
 
   header {
+    container: header / inline-size;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -203,10 +204,20 @@ header .kimaera-header,
   
    
   }
+
+
   header #kimaerakode {
     font-family: var(--font-display);
-    font-size: var(--space-xxl);
+  font-size: var(--space-l);
+  transition: font-size 250ms ease;
+
+        @container header (width > 650px) { 
+            font-size: var(--space-xxl);
+        }
   }
+
+
+
 
   header .kimaera-header {
     border-bottom: 1px solid var(--text);
