@@ -130,9 +130,9 @@ span  {
       --color-shadow: color-mix(in srgb, var(--color-grey) 20%, var(--color-night));
 
     /* light theme // dark theme */
-    --color-scheme: light dark;
-    --surface: light-dark(var(--color-grey), var(--color-night));
-    --text: light-dark(var(--color-night), var(--color-grey));
+   color-scheme: light; 
+    --surface: var(--color-grey);
+    --text: var(--color-night);
 
     /* fonts */
     --font-display: "HikaruMono";
@@ -150,12 +150,13 @@ span  {
     --space-l: calc(2 * var(--space));
     --space-xl: calc(2.25 * var(--space));
     --space-xxl: calc(2.5 * var(--space));
-
     --body-width: calc(100vw - 2 * var(--space-s));
   }
 
   :root:has(#dark-theme:checked) {
     color-scheme: dark;
+    --surface: var(--color-night);
+    --text: var(--color-grey);
     --color-shadow: color-mix(in srgb, var(--color-grey) 90%, var(--color-night));
 
     img.decoration {
@@ -163,14 +164,20 @@ span  {
     }
   }
 
+html,
+body {
+  background-color: var(--surface);
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
   body {
 max-width: 100%;
 min-height: 100vh;
     font-family: var(--font-body);
-    background: var(--surface);
     color: var(--text);
     padding-inline: var(--space-s);
-    transition: background-color 250ms ease, color 250ms ease;
+   
   }
 
   
@@ -204,6 +211,7 @@ footer {
     padding-block: var(--space-xs-s);
     width: 100%;
     background: var(--surface);
+      transition: background-color 250ms ease;
    
   }
 
