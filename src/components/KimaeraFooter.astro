@@ -2,17 +2,17 @@
 import ThemeToggle from "./ThemeToggle.astro";
 const {lastUpdated} = Astro.props;
 ---
-<footer >
+<footer>
     <nav class="kimaera-footer">
     <div>
         <span>Updated: {lastUpdated}</span>
-        <span>|</span>
+        <span class="divider">|</span>
      
          <ThemeToggle/>
     </div>
     <div>
         <span><a class="link disabled" href="">@kimaerakode</a></span>
-        <span>|</span>
+        <span class="divider">|</span>
         <span><a class="link" href="mailto:kimaerakode@gmail.com">kimaerakode@gmail.com</a></span>
     </div>
 </nav>

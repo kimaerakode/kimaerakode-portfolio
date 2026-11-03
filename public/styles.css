@@ -187,7 +187,18 @@ min-height: 100vh;
 
 @layer components {
 
+  header, footer {
+     background: var(--surface);
+      transition: background-color 250ms ease;
+  }
 
+header .kimaera-header,
+  footer .kimaera-footer {
+    padding-block: var(--space-xs-s);
+    width: 100%;
+  
+   
+  }
   header #kimaerakode {
     font-family: var(--font-display);
     font-size: var(--space-xxl);
@@ -201,19 +212,42 @@ min-height: 100vh;
   }
 
 footer {
+  container: footer / inline-size;
      z-index: 10000;
     position: relative;
   
   }
 
-  header .kimaera-header,
-  footer .kimaera-footer {
-    padding-block: var(--space-xs-s);
-    width: 100%;
-    background: var(--surface);
-      transition: background-color 250ms ease;
+  @container footer (width < 650px) {
+    footer .kimaera-footer {
+      flex-direction: column;
+      gap: var(--space-l);
    
-  }
+      > * {
+        gap: var(--space-l);
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .divider {
+       opacity: 0;
+      }
+    }
+}
+
+
+  @container footer (width > 650px) {
+    footer .kimaera-footer {
+      flex-direction: row;
+     gap: var(--space-s);
+   
+      > * {
+        gap: var(--space-s);
+        justify-content: space-between;
+      }
+    }
+}
+
 
    footer .kimaera-footer {
        display: flex;
@@ -233,7 +267,6 @@ footer {
     max-width: 100%;
     display: flex;
     align-items: baseline;
-       gap: var(--space-s); 
        font-size: var(--space-xs-s);
    }
     .theme-toggle {
