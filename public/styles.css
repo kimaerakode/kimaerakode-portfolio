@@ -165,19 +165,17 @@ span  {
     }
   }
 
-html,
-body {
-  background-color: var(--surface);
-  transition:
-    background-color 250ms ease,
-    color 250ms ease;
-}
+
   body {
 max-width: 100%;
 min-height: 100vh;
     font-family: var(--font-body);
     color: var(--text);
     padding-inline: var(--space-s);
+    background-color: var(--surface);
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
    
   }
 
@@ -195,7 +193,7 @@ min-height: 100vh;
     container: header / inline-size;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 10000;
   }
 
 header .kimaera-header,
@@ -210,7 +208,7 @@ header .kimaera-header,
   header #kimaerakode {
     font-family: var(--font-display);
   font-size: var(--space-l);
-  transition: font-size 250ms ease;
+  
 
         @container header (width > 650px) { 
             font-size: var(--space-xxl);
