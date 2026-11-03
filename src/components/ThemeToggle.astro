@@ -8,3 +8,17 @@
         [Dark]
     </label>
 </div>
+
+<script>
+  const themeColor = document.querySelector<HTMLMetaElement>('#theme-color');
+
+  document.querySelectorAll<HTMLInputElement>('input[name="theme"]')
+    .forEach((input) => {
+      input.addEventListener('change', () => {
+        if (themeColor) {
+          themeColor.content =
+            input.value === 'dark' ? '#0f0f11' : '#c3c3ce';
+        }
+      });
+    });
+</script>
