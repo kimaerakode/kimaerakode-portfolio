@@ -181,8 +181,6 @@ min-height: 100vh;
   }
 
   
-
-  
 }
 
 @layer components {
@@ -190,6 +188,12 @@ min-height: 100vh;
   header, footer {
      background: var(--surface);
       transition: background-color 250ms ease;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
 header .kimaera-header,
@@ -207,8 +211,7 @@ header .kimaera-header,
   header .kimaera-header {
     border-bottom: 1px solid var(--text);
     transition: border-color 250ms ease;
-    position: sticky;
-    top: 0;
+  
   }
 
 footer {
@@ -259,6 +262,7 @@ footer {
        left: var(--space-s);
        max-width: var(--body-width);
        font-size: 95%;
+       background: var(--surface);
 
    
     
