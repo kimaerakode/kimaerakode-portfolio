@@ -59,7 +59,7 @@ export default function FairyDustCursor({
           velocityY: -Math.random() * 0.15,
           life: 1,
           size: particleSize * (0.7 + Math.random() * 0.5),
-          character: ['˙⋆✮⋆˚࿔', ' ✧. ݁⋆ ', '✶ ', '* . ݁⋆ '][Math.floor(Math.random() * 4)],
+          character: ['.𖥔 ݁ ˖𖦹⭒°｡⋆', ' ✧. ݁⋆ ', '✶ ', '* . ݁⋆ '][Math.floor(Math.random() * 4)],
               color: getComputedStyle(document.body).color || color,
         });
       }
