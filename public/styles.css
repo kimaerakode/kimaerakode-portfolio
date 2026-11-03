@@ -130,7 +130,7 @@ span  {
     --color-night: #0f0f11;
       --color-shadow: color-mix(in srgb, var(--color-grey) 20%, var(--color-night));
 
-    /* light theme // dark theme */
+/*light color scheme */
    color-scheme: light; 
     --surface: var(--color-grey);
     --text: var(--color-night);
@@ -154,6 +154,7 @@ span  {
     --body-width: calc(100vw - 2 * var(--space-s));
   }
 
+  /* dark color scheme */
   :root:has(#dark-theme:checked) {
     color-scheme: dark;
     --surface: var(--color-night);
@@ -169,6 +170,7 @@ span  {
   body {
 max-width: 100%;
 min-height: 100vh;
+max-height: 100%;
     font-family: var(--font-body);
     color: var(--text);
     padding-inline: var(--space-s);
@@ -176,6 +178,7 @@ min-height: 100vh;
   transition:
     background-color 250ms ease,
     color 250ms ease;
+   
    
   }
 
