@@ -1,0 +1,310 @@
+/* FONTS */
+
+@font-face {
+  font-family: "HikaruMono";
+  src:
+    url("./fonts/HIKARUMONO-Regular.otf") format("otf"),
+    url("./fonts/HIKARUMONO-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TTNormsProMono";
+  src: url("./fonts/TTNormsProMonoVariable.woff2") format("woff2");
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer reset, theme, components, utilities;
+
+/* RESET */
+@layer reset {
+  /* 1. Use a more-intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margin */
+  *:not(dialog) {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 3. Enable keyword animations */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 6. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 7. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 8. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+p {
+  line-height: 130%;
+}
+span  {
+    
+         line-height: 100%;
+  
+
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+   a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    background: 0;
+    border: 0;
+    
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  /*
+  10. Create a root stacking context
+*/
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+ 
+}
+
+/* THEME */
+
+@layer theme {
+  :root {
+    /* color variables */
+    --color-grey: #c3c3ce;
+    --color-night: #0f0f11;
+      --color-shadow: color-mix(in srgb, var(--color-grey) 20%, var(--color-night));
+
+    /* light theme // dark theme */
+    --color-scheme: light dark;
+    --surface: light-dark(var(--color-grey), var(--color-night));
+    --text: light-dark(var(--color-night), var(--color-grey));
+
+    /* fonts */
+    --font-display: "HikaruMono";
+    --font-body: "TTNormsProMono";
+
+    /* spacing units */
+    --space: 1em;
+    --space-xxs: calc(0.25 * var(--space));
+    --space-xs: calc(0.5 * var(--space));
+    --space-xs-s: calc(0.75 * var(--space));
+    --space-s: var(--space);
+    --space-s-m: calc(1.25 * var(--space));
+    --space-m: calc(1.5 * var(--space));
+    --space-m-l: calc(1.75 * var(--space));
+    --space-l: calc(2 * var(--space));
+    --space-xl: calc(2.25 * var(--space));
+    --space-xxl: calc(2.5 * var(--space));
+
+    --body-width: calc(100vw - 2 * var(--space-s));
+  }
+
+  :root:has(#dark-theme:checked) {
+    color-scheme: dark;
+    --color-shadow: color-mix(in srgb, var(--color-grey) 90%, var(--color-night));
+  }
+
+  body {
+max-width: 100%;
+    font-family: var(--font-body);
+    background: var(--surface);
+    color: var(--text);
+    padding-inline: var(--space-s);
+    transition: background-color 250ms ease, color 250ms ease;
+  }
+
+  
+
+  
+}
+
+@layer components {
+
+
+  header #kimaerakode {
+    font-family: var(--font-display);
+    font-size: var(--space-xxl);
+  }
+
+  header .kimaera-header {
+    border-bottom: 1px solid var(--text);
+    transition: border-color 250ms ease;
+    position: sticky;
+    top: 0;
+  }
+
+footer {
+     z-index: 10000;
+    position: relative;
+  
+  }
+
+  header .kimaera-header,
+  footer .kimaera-footer {
+    padding-block: var(--space-xs-s);
+    width: 100%;
+    background: var(--surface);
+   
+  }
+
+   footer .kimaera-footer {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       border-top: 1px solid var(--text);
+       position: fixed;
+       bottom: 0;
+       left: var(--space-s);
+       max-width: var(--body-width);
+       font-size: 95%;
+
+   
+    
+   > * {  
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    align-items: baseline;
+       gap: var(--space-s); 
+       font-size: var(--space-xs-s);
+   }
+    .theme-toggle {
+      display: flex;
+         gap: var(--space-s);
+
+         > * {
+          transition: text-shadow 250ms ease;
+       
+         &:hover {
+text-shadow: 4px 4px 16px var(--color-shadow);
+         }
+           }
+
+
+         input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+         }
+      }
+    }
+
+    main {
+    min-height: fit-content;
+    height: 100%;
+position: relative;
+font-size: var(--space-xs-s);
+
+   > section {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+        padding-block: var(--space-s);
+
+    > * > p {
+      max-width: 50%;
+      margin-bottom: var(--space-s);
+    }
+
+    > ul.services {
+text-align: right;
+width: max-content;
+min-width: fit-content;
+    }
+   
+   }
+
+   img.decoration {
+  position: absolute;
+  right: 0;
+  padding-block: var(--space-xxl);
+   
+   }
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  header .kimaera-header {
+    transition: none;
+  }
+
+
+}
+
+@layer utilities {
+  a.link {
+      transition: text-shadow 250ms ease;
+
+      &:hover {
+        text-shadow: 4px 4px 16px var(--color-shadow);
+      }
+
+      &.disabled {
+        opacity: 40%;
+        pointer-events: none;
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+  }
+}

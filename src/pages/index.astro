@@ -1,4 +1,9 @@
 ---
+import '../../public/styles.css';
+import  KimaeraHeader  from '../components/KimaeraHeader.astro';
+import  KimaeraFooter  from '../components/KimaeraFooter.astro';
+import  Services  from '../components/Services.astro';
+import FairyDustCursor from '../components/FairyDustCursor.tsx';
 ---
 
 <html lang="en">
@@ -11,6 +16,24 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<FairyDustCursor
+  client:only="react"
+
+  particleSize={18}
+  particleCount={1}
+/>
+	<KimaeraHeader/>
+	<main>
+		<section>
+			<div>
+		<p>I am Kimaerakode, a web developer and digital designer. My work inhabits a space where visually compelling interfaces and frontend logic intertwines.
+</p>
+<span>Based in Copenhagen, Denmark.</span>
+</div>
+<Services />
+</section>
+<img class="decoration" src="../../public/assets/ascii-sparkle.svg" alt="">
+	</main>
+	<KimaeraFooter lastUpdated="3. November 2026" />
 	</body>
 </html>
