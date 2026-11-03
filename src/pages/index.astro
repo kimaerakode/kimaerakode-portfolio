@@ -1,5 +1,4 @@
 ---
-import '../../public/styles.css';
 import  KimaeraHeader  from '../components/KimaeraHeader.astro';
 import  KimaeraFooter  from '../components/KimaeraFooter.astro';
 import  Services  from '../components/Services.astro';
@@ -11,6 +10,7 @@ import FairyDustCursor from '../components/FairyDustCursor.tsx';
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="stylesheet" href="/styles.css">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
@@ -32,7 +32,7 @@ import FairyDustCursor from '../components/FairyDustCursor.tsx';
 </div>
 <Services />
 </section>
-<img class="decoration" src="../../public/assets/ascii-sparkle.svg" alt="">
+<img class="decoration" src="/assets/ascii-sparkle.svg" alt="">
 	</main>
 	<KimaeraFooter lastUpdated="3. November 2026" />
 	</body>
