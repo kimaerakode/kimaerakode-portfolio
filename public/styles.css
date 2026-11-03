@@ -3,8 +3,8 @@
 @font-face {
   font-family: "HikaruMono";
   src:
-    url("./fonts/HIKARUMONO-Regular.otf") format("otf"),
-    url("./fonts/HIKARUMONO-Regular.woff2") format("woff2");
+    url("./fonts/HIKARUMONO-Regular.woff2") format("woff2"), 
+    url("./fonts/HIKARUMONO-Regular.otf") format("otf");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -166,10 +166,13 @@ span  {
     }
   }
 
+  html {
+    font-family: var(--font-body);
+  }
 
   body {
 max-width: 100%;
-min-height: 100vh;
+min-height: 90vh;
 max-height: 100%;
     font-family: var(--font-body);
     color: var(--text);
@@ -319,6 +322,7 @@ text-shadow: 4px 4px 16px var(--color-shadow);
     height: 100%;
 position: relative;
 font-size: var(--space-xs-s);
+
 
    > section {
     display: flex;
