@@ -156,6 +156,10 @@ span  {
   :root:has(#dark-theme:checked) {
     color-scheme: dark;
     --color-shadow: color-mix(in srgb, var(--color-grey) 90%, var(--color-night));
+
+    img.decoration {
+      filter: invert();
+    }
   }
 
   body {
